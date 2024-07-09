@@ -20,3 +20,8 @@ services:
     image: camilom959/hotel-reservations-service
     ports: 
       - "3000:3000"
+  
+  flight-reservations:
+    image: cristiangabriel/flight-reservations-service
+    ports: 
+      - "9090:9090"

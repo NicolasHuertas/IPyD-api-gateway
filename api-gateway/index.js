@@ -8,7 +8,7 @@ app.use('/reservations', createProxyMiddleware({
     target: 'http://combined-reservations:8420', 
     changeOrigin: true,
     pathRewrite: {
-      '^/reservations': 'reservations/'
+      '^/reservations': 'reservations'
     }
 }));
 
@@ -17,6 +17,14 @@ app.use('/hotels', createProxyMiddleware({
   changeOrigin: true,
   pathRewrite: {
     '^/hotels': 'api/reservations'
+  }
+}));
+
+app.use('/flights', createProxyMiddleware({
+  target: 'http://flight-reservations:9090',
+  changeOrigin: true,
+  pathRewrite: {
+    '^/flights': 'reservations'
   }
 }));
 
