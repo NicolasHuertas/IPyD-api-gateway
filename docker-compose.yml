@@ -8,43 +8,15 @@ services:
     volumes:
       - .:/app
     depends_on:
-      - bemanager-cash-flow
-      - bemanager-quotes
-      - bemanager-auth
-      - bemanager-clients
-      - bemanager-providers
-      - bemanager-products
+      - combined-reservations
+      - hotel-reservations 
 
-  bemanager-quotes:
-    image: zethoc/bm_quotes_api   
-    env_file:    
-      - ./.envs/.local/.bm_quotes_api/.postgres
-    ports:
-      - "8000:8000"   
-    command: /start
-
-  bemanager-auth:
-    image: danielcaicedo8991/bemanager-auth:v1.0
-    ports:
-      - "3030:3030"
-
-  bemanager-clients:
-    image: anborja/bm_clients_api
-    ports: 
-      - "8989:8989"    
-
-  bemanager-providers:
-    image: nhuertasuv/bm-providers-api
+  combined-reservations:
+    image: nhuertasuv/ipyd-combined-reservations:tagname
     ports: 
       - "8420:8420"   
 
-  bemanager-cash-flow:
-    image: rianosnatalia637/bm_flujo_caja_api
+  hotel-reservations:
+    image: camilom959/hotel-reservations-app
     ports: 
-      - "8787:8787"    
-
-  bemanager-products:
-    image: deisym08/products-app-bm
-    ports: 
-      - "8686:8686"    
-       
+      - "3000:3000"
