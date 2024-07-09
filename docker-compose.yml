@@ -17,6 +17,6 @@ services:
       - "8420:8420"   
 
   hotel-reservations:
-    image: camilom959/hotel-reservations-app
+    image: camilom959/hotel-reservations-service
     ports: 
       - "3000:3000"

@@ -16,7 +16,7 @@ app.use('/hotels', createProxyMiddleware({
   target: 'http://hotel-reservations:3000', 
   changeOrigin: true,
   pathRewrite: {
-    '^/hotels': 'reservations/api/reservations'
+    '^/hotels': 'api/reservations'
   }
 }));
 
