@@ -10,6 +10,7 @@ services:
     depends_on:
       - combined-reservations
       - hotel-reservations 
+      - flight-reservations
 
   combined-reservations:
     image: nhuertasuv/ipyd-combined-reservations
@@ -20,7 +21,7 @@ services:
     image: camilom959/hotel-reservations-service
     ports: 
       - "3000:3000"
-  
+
   flight-reservations:
     image: cristiangabriel/flight-reservations-service
     ports: 
