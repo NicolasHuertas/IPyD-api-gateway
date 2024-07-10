@@ -20,11 +20,19 @@ app.use('/hotels', createProxyMiddleware({
   }
 }));
 
-app.use('/flights', createProxyMiddleware({
-  target: 'http://flight-reservations:9090',
+app.use('/seats', createProxyMiddleware({
+  target: 'http://flight-reservations:8000',
   changeOrigin: true,
   pathRewrite: {
-    '^/flights': 'reservations'
+    '^/seats': 'api/reservations'
+  }
+}));
+
+app.use('/flights', createProxyMiddleware({
+  target: 'http://flight-reservations:8000',
+  changeOrigin: true,
+  pathRewrite: {
+    '^/flights': 'api/flights'
   }
 }));
 

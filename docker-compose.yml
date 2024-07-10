@@ -23,6 +23,6 @@ services:
       - "3000:3000"
 
   flight-reservations:
-    image: cristiangabriel/flight-reservations-service
+    image: nhuertasuv/flight-reservation-service
     ports: 
-      - "9090:9090"
+      - "8000:8000"
