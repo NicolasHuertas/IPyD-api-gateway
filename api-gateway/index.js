@@ -1,8 +1,11 @@
 const express = require('express');
 const { createProxyMiddleware } = require('http-proxy-middleware');
+const cors = require('cors');
 
 const app = express();
 const port =  8005;
+
+app.use(cors());
 
 app.use('/reservations', createProxyMiddleware({ 
     target: 'http://combined-reservations:8420', 

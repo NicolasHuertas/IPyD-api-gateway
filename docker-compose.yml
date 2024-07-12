@@ -11,18 +11,39 @@ services:
       - combined-reservations
       - hotel-reservations 
       - flight-reservations
+    networks:
+      - ipyd-network
 
   combined-reservations:
-    image: nhuertasuv/ipyd-combined-reservations
+    image: nhuertasuv/ipyd-combined-reservations:latest
     ports: 
       - "8420:8420"   
+    networks:
+      - ipyd-network
 
   hotel-reservations:
-    image: camilom959/hotel-reservations-service
+    image: camilom959/hotel-reservations-service:latest
     ports: 
       - "3000:3000"
+    networks:
+      - ipyd-network
 
   flight-reservations:
-    image: nhuertasuv/flight-reservation-service
+    image: nhuertasuv/flight-reservation-service:latest
     ports: 
       - "8000:8000"
+    networks:
+      - ipyd-network
+  
+  frontend:
+    image: nhuertasuv/ipyd-frontend:latest
+    ports:
+      - "5173:5173"
+    stdin_open: true
+    tty: true
+    networks:
+      - ipyd-network
+
+networks:
+  ipyd-network:
+    driver: bridge

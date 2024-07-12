@@ -2,7 +2,7 @@
   "name": "api-gateway",
   "version": "1.0.0",
   "description": "api-gateway",
-  "main": "index.js" , 
+  "main": "index.js",
   "author": "lcastillo",
   "license": "ISC",
   "dependencies": {
